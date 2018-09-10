@@ -9,4 +9,4 @@ before_install:
   - docker pull healthcheck/redis:alpine
 
 script:
-  - docker ps -a
+  - docker run -d healthcheck/redis:alpine redis-cli ping
