@@ -9,4 +9,5 @@ script:
   - docker-compose up -d
   - docker-compose exec redis redis-cli incr mykey
   - docker-compose exec redis redis-cli incr mykey
-  - docker-compose exec redis shutdown
+  - docker-compose exec redis redis-cli shutdown
+  - docker-compose down
