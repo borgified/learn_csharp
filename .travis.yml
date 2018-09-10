@@ -6,7 +6,7 @@ before_install:
   - docker pull healthcheck/redis:alpine
 
 script:
-  - docker-compose start
+  - docker-compose up -d
   - docker-compose exec redis redis-cli incr mykey
   - docker-compose exec redis redis-cli incr mykey
   - docker-compose exec redis shutdown
