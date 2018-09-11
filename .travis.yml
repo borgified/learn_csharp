@@ -10,3 +10,4 @@ script:
   - docker-compose exec redis redis-cli incr mykey
   - docker-compose exec redis redis-cli incr mykey
   - docker-compose down
+  - echo $blah
