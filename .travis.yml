@@ -1,14 +1,18 @@
 sudo: required
-
 language: minimal
 
-before_install:
-  - docker pull healthcheck/redis:alpine
+addons:
+  browserstack:
+    username: borgified1
+    access_key:
+      secure: gvmLIrclWOOh1rM0VktiGXcBbMWj0jFlctzc3gxG4JL7Kw7yoJj8Naso1bS1egmMP5JZ/GVZFPGF7dVQfoHj0pF7aQFclSHlsb044m8qeIxxExnzEQ8UoyvTKYub/Sk9/ql7tiswwY9VMcKaUIqOZeQyYSoWDymerpqx05N5TjpaaBU45mR7trjH/xsuNFo+2DEysuDRk6AGiGLytWjyTLOtGLepWn/tkpvmZrP1c27kaXzMa9lfQw0RAM1D8mXE/SoRgOcSBl5CpAMe3DAOG9QGXEVPomrz6EpgObpu/URaCrZd5h1E5JqITXVHgJFo/OnpXVTY2MIcjsaYE05DEpqXj9zYhAl2/gfZkWrfOz5QJcVLEqjqt4HdPUEHZ6psKy1NlogcmmOOVGFh8WLerCky+W4fdSeEERx2i5uWDnfb4Zinbd4r7QzHeIs5PPRlQAkertNXMNT7Qebv/4mdyMtypCthog2JvZRFfGEiBToF2KFYTLQPfcuGcPXgDn9Sx/oB6+sIi4OQ7GaOWurueYbWATfk1nrv5/97hdPMd2KS6ilyu4oyJcTWaJOqcuWu8xExIR7pmcGuT31mp6gxxqj3AolTQgXJn3LSuPns9M8+RTg+EeBZU2De38JnrCSXzLXArsz2EZNQAmiE+E2UkJqB0wNL20nwYIP1uB2Ww4s=
 
+before_install:
+- docker pull healthcheck/redis:alpine
 script:
-  - docker-compose up -d
-  - docker-compose exec redis redis-cli incr mykey
-  - docker-compose exec redis redis-cli incr mykey
-  - docker-compose down
-  - echo $blah
-  - docker images list
+- docker-compose up -d
+- docker-compose exec redis redis-cli incr mykey
+- docker-compose exec redis redis-cli incr mykey
+- docker-compose down
+- echo $blah
+- docker images list
